@@ -1,29 +1,20 @@
 {
 
   "manifest_version": 2,
-  "name": "Beastify",
-  "version": "1.0",
+  "name": "ROBO JIRA",
+  "version": "2.6",
 
-  "description": "Adds a browser action icon to the toolbar. Click the button to choose a beast. The active tab's body content is then replaced with a picture of the chosen beast. See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Examples#beastify",
-  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/beastify",
+  "description": "Makes time logging for repetitive tasks easier.",
+
   "icons": {
-    "48": "beast.png"
+    "128": "robo.png"
   },
 
-  "permissions": [
-    "activeTab"
-  ],
-
-  "browser_action": {
-    "default_icon": "beast.png",
-    "default_title": "Beastify",
-    "default_popup": "popup/choose_beast.html"
-  },
-
-  "web_accessible_resources": [
-    "beasts/kitten.jpg",
-    "beasts/turtle.jpg",
-    "beasts/snake.jpg"
+  "content_scripts": [
+    {
+      "matches": ["*://*.pcgus.com/*"],
+      "js": ["robo.js"]
+    }
   ]
 
 }
