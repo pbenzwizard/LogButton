@@ -8,15 +8,16 @@ function addLogger() {
 		var logUrl = "/secure/CreateWorklog!default.jspa?id="+issueID;
 		var subUrl = '/secure/CreateSubTaskIssue!default.jspa?parentIssueId='+issueID;
 
-		var timeLogging = document.createElement("ul");
+		var timeLogging = document.createElement("div");
 		timeLogging.setAttribute("id", "opsbar-logging");
-		timeLogging.setAttribute("class", "toolbar-group pluggable-ops");
+		timeLogging.setAttribute("class", "aui-buttons pluggable-ops");
 		timeLogging.setAttribute("style", "z-index: 2999;");
 		
 		if (document.getElementById("type-val").textContent.includes("Sub-Task"))
 		{
 			var logButton = document.createElement("li");
 			logButton.setAttribute("class", "toolbar-item");
+			logButton.style="list-style:none;";
 			var logDiv = document.createElement("div");
 			var logLink = document.createElement("a");
 			logLink.setAttribute("href", "#");
@@ -47,7 +48,7 @@ function addLogger() {
 				log_a.setAttribute("class", "issueaction-log-work");
 				log_a.setAttribute("href", logUrl);
 				log_a.setAttribute("title", "Log time");
-				log_a.setAttribute("onclick", "setTimeout(function(){document.querySelector('input#log-work-time-logged').value='"+entry+"';document.querySelectorAll('textarea#comment')[1].focus();}, 1000)");
+				log_a.setAttribute("onclick", "setTimeout(function(){document.querySelector('input#log-work-time-logged').value='"+entry+"';document.querySelectorAll('textarea#comment')[1].focus();}, 1700)");
 				var log_li = document.createElement("li");
 				log_li.setAttribute("class", "aui-list-item");
 				log_a.appendChild(log_s);
@@ -68,6 +69,7 @@ function addLogger() {
 		{
 			var subButton = document.createElement("li");
 			subButton.setAttribute("class", "toolbar-item");
+			subButton.style="list-style:none;";
 			var subDiv = document.createElement("div");
 			var subLink = document.createElement("a");
 			subLink.setAttribute("href", "#");
@@ -108,7 +110,7 @@ function addLogger() {
 					alink.setAttribute("class", "issueaction-create-subtask");
 					alink.setAttribute("href", subUrl);
 					alink.setAttribute("title", "Create sub-task");
-					alink.setAttribute("onclick", "setTimeout(function(){document.getElementById('issuetype-field').value='"+issues[k]+" Sub-Task';document.getElementById('assign-to-me-trigger').click();document.getElementById('customfield_11423').value='"+userName+"';document.getElementById('summary').value='"+issues[k]+"';document.getElementById('horizontal').children[0].children[1].children[0].click();}, 1000); setTimeout(function(){document.getElementById('timetracking').focus();}, 2000)");
+					alink.setAttribute("onclick", "setTimeout(function(){document.getElementById('issuetype-field').value='"+issues[k]+" Sub-Task';document.getElementById('assign-to-me-trigger').click();document.getElementById('customfield_11423').value='"+userName+"';document.getElementById('summary').value='"+issues[k]+"';document.getElementById('horizontal').children[0].children[1].children[0].click();}, 1700); setTimeout(function(){document.getElementById('timetracking').focus();}, 2000)");
 					alink.appendChild(span);
 					var list = document.createElement("li");
 					list.setAttribute("class", "aui-list-item");
